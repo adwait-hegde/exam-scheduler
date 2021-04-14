@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Linking the CSS -->
-    <link rel="stylesheet" href="" />
-    <!-- <link rel="stylesheet" href="../static/mainpage.css" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
+    <script
+      src="https://kit.fontawesome.com/5548f5ed00.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -24,257 +27,347 @@
           url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max");
         color: white;
       }
-      .submitBtn {
-        transform: translate(-1%, 50%);
-        width: 8rem;
-        height: 3.25rem;
-        font-size: 20px;
-        font-weight: lighter;
-        border: 1px solid purple;
 
-        background-color: transparent;
-        color: white;
+      @import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400i,700");
 
-        transition: color 0.3s ease-out, box-shadow 0.2s ease-in,
-          border 0.3s ease-out;
+      html,
+      body{
+        height: 100vh; 
+        font-size: 14px;
+        font-family: Montserrat, sans-serif;
       }
-      .submitBtn::before {
-        content: "";
-        position: absolute;
-        top: 0px;
-        left: 0px;
-
-        clip-path: circle(0% at 0% 100%);
-
-        background-color: purple;
-        width: 100%;
-        height: 100%;
-
-        transition: clip-path 0.25s ease-in;
-        z-index: -1;
-      }
-      .submitBtn:hover::before {
-        clip-path: circle(80% at 0% 100%);
-      }
-      .submitBtn::after {
-        content: "";
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        background-color: purple;
-        width: 100%;
-        height: 100%;
-        clip-path: circle(0% at 100% 0%);
-        transition: clip-path 0.25s ease-in;
-        z-index: -1;
-      }
-      .submitBtn:hover::after {
-        clip-path: circle(80% at 100% 0%);
-      }
-
-      .submitBtn:hover {
-        box-shadow: 7px 7px 20px purple;
-        color: rgb(255, 255, 255);
-
-        cursor: pointer;
-        border: 1.5px solid white;
-      }
-      .submitBtn:active {
-        font-weight: bold;
-        background-color: purple;
-        color: white;
-        box-shadow: 8px 8px 100px purple;
-
-        border: 2px solid white;
-      }
-
-      /*login button start*/
-      .wrapper {
-        height: 4rem;
-        width: 8rem;
-        background-color: white;
-        border-radius: 6px;
-        margin-left: 7rem;
-        margin-top: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translate(-50%, -50%);
-      }
-
-      .link_wrapper {
-        position: relative;
-      }
-
-      #loginbutton {
-        display: block;
-        width: 8rem;
-        height: 4rem;
-        line-height: 4rem;
-        font-weight: bold;
-        text-decoration: none;
-        background: white;
+      .card{
+        width: 300px;
+        max-width: 100%;
         text-align: center;
-        color: black;
-        letter-spacing: 1px;
-        border-radius: 6px;
-        transition: all 0.35s;
-      }
-
-      .icon {
-        width: 50px;
-        height: 50px;
-        border: 3px solid transparent;
-        position: absolute;
-        transform: rotate(45deg);
-        right: 0;
-        top: 0;
-        z-index: -1;
-        transition: all 0.35s;
-      }
-
-      .icon svg {
-        width: 30px;
-        position: absolute;
-        top: calc(50% - 15px);
-        left: calc(50% - 15px);
-        transform: rotate(-45deg);
-        fill: #2ecc71;
-        transition: all 0.35s;
-      }
-
-      #loginbutton:hover {
-        width: 10rem;
-        border: 3px solid #2ecc71;
+        border-radius: 12px;  
         background: white;
-        color: #2ecc71;
+        border: 1px solid #d4d4d4;
+      }
+      .card header {
+        background-image: url('https://images.unsplash.com/photo-1616268177838-f524156bb98d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNjYyMTQ1NQ&ixlib=rb-1.2.1&q=80&w=400');
+        height: 120px;
+        border-radius: 12px 12px 0 0;
+        margin-bottom: 100px;
+      }
+      .card header img {
+        margin: 70px 40px 10px 40px;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        border: 6px solid white;
+      }
+      .card header p {
+        color: #444;
+        font-size: 18px;
+        font-weight: 300;
+      }
+      .card_body{
+        margin-top: 60px;
+      }
+      .card_body ul.social{
+        display: flex;
+        list-style: none;  
+        margin-bottom: 40px;
+        justify-content: space-around;
+      }
+      .card_body ul.social li{
+        cursor: pointer;
+      }
+      .card_body li h3 {
+        color: #666;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+      }
+      .card_body li p{
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 0.8rem;
       }
 
-      #loginbutton:hover + .icon {
-        border: 3px solid #2ecc71;
-        right: -25%;
+      @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+      body {
+        background-color: #3e94ec;
+        font-family: "Roboto", helvetica, arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-rendering: optimizeLegibility;
       }
-      /*login button end*/
+
+      div.table-title {
+        display: block;
+        margin: auto;
+        max-width: 600px;
+        padding:5px;
+        width: 100%;
+      }
+
+      .table-title h3 {
+        color: #fafafa;
+        font-size: 30px;
+        font-weight: 400;
+        font-style:normal;
+        font-family: "Roboto", helvetica, arial, sans-serif;
+        text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+        text-transform:uppercase;
+      }
+
+
+      /*** Table Styles **/
+
+      .table-fill {
+        background: white;
+        border-radius:3px;
+        border-collapse: collapse;
+        height: auto;
+        margin: auto;
+        max-width: 600px;
+        padding:5px;
+        width: 100%;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        animation: float 5s infinite;
+      }
+      
+      th {
+        color:#D5DDE5;;
+        background:#1b1e24;
+        border-bottom:4px solid #9ea7af;
+        border-right: 1px solid #343a45;
+        font-size:23px;
+        font-weight: 100;
+        padding:24px;
+        text-align:left;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        vertical-align:middle;
+      }
+
+      th:first-child {
+        border-top-left-radius:3px;
+      }
+      
+      th:last-child {
+        border-top-right-radius:3px;
+        border-right:none;
+      }
+        
+      tr {
+        border-top: 1px solid #C1C3D1;
+        border-bottom-: 1px solid #C1C3D1;
+        color:#666B85;
+        font-size:16px;
+        font-weight:normal;
+        text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+      }
+      
+      tr:hover td {
+        background:#4E5066;
+        color:#FFFFFF;
+        border-top: 1px solid #22262e;
+      }
+      
+      tr:first-child {
+        border-top:none;
+      }
+
+      tr:last-child {
+        border-bottom:none;
+      }
+      
+      tr:nth-child(odd) td {
+        background:#EBEBEB;
+      }
+      
+      tr:nth-child(odd):hover td {
+        background:#4E5066;
+      }
+
+      tr:last-child td:first-child {
+        border-bottom-left-radius:3px;
+      }
+      
+      tr:last-child td:last-child {
+        border-bottom-right-radius:3px;
+      }
+      
+      td {
+        background:#FFFFFF;
+        padding:20px;
+        text-align:left;
+        vertical-align:middle;
+        font-weight:300;
+        font-size:18px;
+        text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+        border-right: 1px solid #C1C3D1;
+      }
+
+      td:last-child {
+        border-right: 0px;
+      }
+
+      th.text-left {
+        text-align: left;
+      }
+
+      th.text-center {
+        text-align: center;
+      }
+
+      th.text-right {
+        text-align: right;
+      }
+
+      td.text-left {
+        text-align: left;
+      }
+
+      td.text-center {
+        text-align: center;
+      }
+
+      td.text-right {
+        text-align: right;
+      }
+
+
     </style>
   </head>
   <body>
     <!-- Nav Starts -->
-    <div class="nav">
-      <h2>IPL AUCTION 2021</h2>
-    </div>
-    <br />
+    <nav class="navbar navbar-light mb-5 p-3" style="background-color: #fffafa;">
+      <div class="container">
+        <a class="navbar-brand">COURSE REGISTRATION</a>
+        <div class="d-flex">
+          {% if is_admin %}
+          <a class="btn btn-outline-success" href="{% url 'generate' %}">Generate</a>
+          {% endif %}
+           &nbsp;
+          <a class="btn btn-outline-dark" href="{% url 'signout' %}">Log Out</a>
+          </div>
+          
+      </div>
+    </nav>
     <!-- Nav Ends -->
 
-    <div class="grid">
-      <div class="card-container">
-        <div class="insideGrid">
-          <h1>Login For Event</h1>
+    <div class="containe area" style="display: flex; justify-content: space-evenly;">
+      <div class="subarea1">
+      
+        
+        <div class="container">
           <div>
-            <a href="" style="text-decoration: none">
-              <!-- <button style="font-weight: bold; width: 144px" class="one">
-                Login
-              </button> -->
-              <div
-                style="
-                  height: 4rem;
-                  width: 8rem;
-                  border-radius: 6px;
-                  margin-left: 6rem;
-                  margin-top: 2.5rem;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
-                <div class="wrapper">
-                  <div class="link_wrapper">
-                    <a id="loginbutton" href=''
-                      ><h4>Login</h4></a
-                    >
-                    <div class="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 268.832 268.832"
-                      >
-                        <path
-                          d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--Login button ends-->
-            </a>
+            <h2>No. of Registered Courses:</h2>
+            <h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{regno}}</h1>
           </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="insideGrid">
-          <h1>Calculate Score</h1>
-          <a href="" style="text-decoration: none">
-            <!-- Calculator Button Starts -->
-            <div style="transform: translate(5.5rem, 1.5rem)">
-              <div class="container-box">
-                <div class="left-side">
-                  <div class="card">
-                    <div class="card-line"></div>
-                    <div class="buttons"></div>
-                  </div>
-                  <div class="post">
-                    <div class="post-line"></div>
-                    <div class="screen">
-                      <div class="dollar">$</div>
-                    </div>
-                    <div class="numbers"></div>
-                  </div>
-                </div>
-                <div class="right-side">
-                  <div class="new" style="color: black">
-                    <h4>Calculate</h4>
-                  </div>
 
-                  <svg
-                    class="arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="512"
-                    height="512"
-                    viewBox="0 0 451.846 451.847"
-                  >
-                    <path
-                      d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"
-                      data-original="#000000"
-                      class="active-path"
-                      data-old_color="#000000"
-                      fill="#cfcfcf"
-                    />
-                  </svg>
-                </div>
+          <br><br><br><br><br>
+          <h2>Your Details</h2>
+          <div class="card">
+            <header>    
+              <img src='https://th.bing.com/th/id/Rc11b6f38dffc24a4508217513b0e50bd?rik=Pt%2bkITlukiMkWg&riu=http%3a%2f%2fwww.emmegi.co.uk%2fwp-content%2fuploads%2f2019%2f01%2fUser-Icon.jpg&ehk=zjS04fF4nxx%2bpkvRPsSezyic3Z7Yfu%2fuoT75KnbNv1Y%3d&risl=&pid=ImgRaw' alt='user'>
+              <p class="face__name">{{user.first_name}} {{user.last_name}}</p>
+              
+            </header>
+            <div style="color: #444; margin-bottom: 16px;">
+              Username: {{user.username}}<br>
+              UID: {{uid}} <br>
+              Email-Id:{{user.email}} <br>
               </div>
-            </div>
-            <!-- Calculator Button Ends -->
-          </a>
+          </div>
+
+      </div>
+      </div>
+
+      <div class="subarea3">
+        <h2>
+          &nbsp; &nbsp; &nbsp;Available Courses &nbsp; &nbsp; Registered Courses &nbsp; 
+        </h2>
+        <div class="container" style="display: flex;">
+
+          <table class="table-fill m-2">
+            <tbody class="table-hover">
+            {% for sub in all_sub %}
+            <tr>
+            <td class="text-left">{{sub.name}}</td>
+            <td class="text-left"><button class="btn btn-success" {% if is_admin %} disabled {% endif %}><a href="{% url 'register' sid=sub.id %}" style="color: whitesmoke;">Register</a></button></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <br>
+          <table class="table-fill m-2">
+            <tbody class="table-hover">
+            {% for sub in reg_sub %}
+            <tr>
+            <td class="text-left">{{sub.name}}</td>
+            <td class="text-left"><button class="btn btn-danger" {% if is_admin %} disabled {% endif %}><a href="{% url 'unregister' sid=sub.id %}" style="color: whitesmoke;">Unregister</a></button></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>          
+
         </div>
       </div>
     </div>
-    <br />
-    <br />
+<!-- Footer -->
+<footer
+class="page-footer font-small mt-5"
+style="background-color: #f6e5f6; color: rgb(37, 37, 35)"
+>
+<div style="background-color: #fffafa">
+  <div class="container">
+    <!-- Grid row-->
+    <div class="row py-4 d-flex align-items-center">
+      <!-- Grid column -->
+      <div
+        class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+      >
+        <h6 class="mb-0"></h6>
+      </div>
+      <div class="col-md-6 col-lg-7 text-center text-md-right">
+        Find our source code on GitHub!
+        <a href="https://github.com/adwait-hegde/exam-scheduler" class="tw-ic" style="color: #1b1e24;">
+          <i class="fab fa-github white-text mr-4"> </i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Link the JS -->
+<div class="container text-center text-md-left mt-5">
+  <!-- Grid row -->
+  <div class="row mt-3">
+    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+      <center>
+        Yash Brid<br />2019130008<br />&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/adwait-hegde/" class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
+        <a href="https://github.com/bridyash13/" class="tw-ic"><i class="fab fa-github white-text mr-4"></i></a>
+        <a href="https://twitter.com/bridyash13/" class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
+      </center>
+    </div>
+    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+      <center>
+        Abhishek Chopra<br />
+        2019130009<br />&nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/yash-jagtap-405a37150/" class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
+        <a href="https://github.com/AbhishekC20001/" class="tw-ic"><i class="fab fa-github white-text mr-4"></i></a>
+        <a href="" class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
+      </center>
+    </div>
+    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+      <center>
+        Adwait A Hegde<br>
+        2019130019<br>&nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/adwait-hegde/" class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
+        <a href="https://github.com/adwait-hegde/" class="tw-ic"><i class="fab fa-github white-text mr-4"></i></a>
+        <a href="https://twitter.com/adwait_hegde/" class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
+      </center>
+    </div>
+  </div>
+</div>
+</footer>
 
-    <a
-      href="/whydidyoutouch"
-      style="text-decoration: none; color: black; float: right; bottom: 0%"
-      ><small style="opacity: 0.5; font-size: 10px">Don't press this </small></a
-    >
-    <script>
-      function showthis(btn) {
-        console.log(btn.children[1].children[1].children[0]);
-        btn.children[1].children[1].children[0].style.display = "block";
-      }
-      function removethis(btn) {
-        btn.children[1].children[1].children[0].style.display = "none";
-      }
-    </script>
+
   </body>
 </html>

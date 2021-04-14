@@ -40,7 +40,7 @@ def timetable(mat):
             print(k,i,mat[k][i])
             if mat[k][i]==1:
                 if ans[i]==color:
-                    print("hmmmmmmmmmmmmmmmmmmm")
+                    print("---------------------------")
                     color+=1
                     continue
 
@@ -57,10 +57,35 @@ def timetable(mat):
 
 # Create your views here.
 def start(request):
-    return render(request, 'start.html')
+    if not request.user.is_authenticated:
+        return redirect('/login/')
+    not_admin=False
+    all_subjects = Subject.objects.values()
+    reg_subjects = []
+    uid = 'admin123'
+    if request.user.username!='admin':
+        not_admin=True
+        mapping = Mapping.objects.get(user=request.user)
+        reg_subjects = mapping.sub.values()
+        print(mapping, reg_subjects)
+        uid = mapping
+    regno = len(reg_subjects)
+
+    aval_subjects=[]
+    for sub in all_subjects:
+        if sub not in reg_subjects:
+            aval_subjects.append(sub)
+    # print(reg_subjects[1]['name'])
+    print(all_subjects[6]['name'])
+    prms = {'regno':regno,'uid':uid, 'all_sub':aval_subjects,'reg_sub':reg_subjects,'is_admin':not not_admin}
+    return render(request, 'start.html', prms)
 
 
 def generate(request):
+    if not request.user.is_authenticated :
+        return redirect('/login/')
+    if request.user.username != 'admin':
+        return redirect('/')
     mappings = Mapping.objects.all()
     subjects = Subject.objects.values()
     print(subjects)
@@ -94,3 +119,41 @@ def generate(request):
     print(res)
 
     return render(request, 'table.html',{'res':res})
+
+
+def register(request,sid):
+    sub = Subject.objects.get(id=sid)
+    user = request.user
+    mapping = Mapping.objects.get(user=user)
+    mapping.sub.add(sub)
+    return redirect('/')
+
+
+def unregister(request,sid):
+    sub = Subject.objects.get(id=sid)
+    user = request.user
+    mapping = Mapping.objects.get(user=user)
+    mapping.sub.remove(sub)
+    return redirect('/')
+
+
+def signin(request):
+	if request.method=="POST":
+		username=request.POST.get('user')
+		password=request.POST.get('password')
+		user=authenticate(username=username,password=password)
+		if user is not None:
+			login(request,user)
+			return redirect('/')
+		else:
+			messages.error(request,"Wrong credentials,Please try again !")
+			return redirect('/login/')
+
+	if request.method == 'GET':
+		return render(request, "login.html")
+
+
+def signout(request):
+	logout(request)
+	messages.success(request,'Successfully logged out')
+	return redirect('/login/')

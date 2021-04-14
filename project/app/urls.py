@@ -4,4 +4,11 @@ from . import views
 urlpatterns = [
     path('', views.start, name="start"),
     path('generate/', views.generate, name="generate"),
+
+    path('register/<int:sid>', views.register, name="register"),
+    path('unregister/<int:sid>', views.unregister, name="unregister"),
+
+
+    path('login/',views.signin, name='signin'),
+    path('logout/',views.signout, name='signout'),
   ]
