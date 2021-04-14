@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Linking the CSS -->
+    <link rel="stylesheet" href="" />
+    <!-- <link rel="stylesheet" href="../static/mainpage.css" /> -->
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Main Page</title>
+    <style>
+      body {
+        background-size: cover;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.01),
+            rgba(255, 255, 255, 0.01)
+          ),
+          url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max");
+        color: white;
+      }
+      .submitBtn {
+        transform: translate(-1%, 50%);
+        width: 8rem;
+        height: 3.25rem;
+        font-size: 20px;
+        font-weight: lighter;
+        border: 1px solid purple;
+
+        background-color: transparent;
+        color: white;
+
+        transition: color 0.3s ease-out, box-shadow 0.2s ease-in,
+          border 0.3s ease-out;
+      }
+      .submitBtn::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        clip-path: circle(0% at 0% 100%);
+
+        background-color: purple;
+        width: 100%;
+        height: 100%;
+
+        transition: clip-path 0.25s ease-in;
+        z-index: -1;
+      }
+      .submitBtn:hover::before {
+        clip-path: circle(80% at 0% 100%);
+      }
+      .submitBtn::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background-color: purple;
+        width: 100%;
+        height: 100%;
+        clip-path: circle(0% at 100% 0%);
+        transition: clip-path 0.25s ease-in;
+        z-index: -1;
+      }
+      .submitBtn:hover::after {
+        clip-path: circle(80% at 100% 0%);
+      }
+
+      .submitBtn:hover {
+        box-shadow: 7px 7px 20px purple;
+        color: rgb(255, 255, 255);
+
+        cursor: pointer;
+        border: 1.5px solid white;
+      }
+      .submitBtn:active {
+        font-weight: bold;
+        background-color: purple;
+        color: white;
+        box-shadow: 8px 8px 100px purple;
+
+        border: 2px solid white;
+      }
+
+      /*login button start*/
+      .wrapper {
+        height: 4rem;
+        width: 8rem;
+        background-color: white;
+        border-radius: 6px;
+        margin-left: 7rem;
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+      }
+
+      .link_wrapper {
+        position: relative;
+      }
+
+      #loginbutton {
+        display: block;
+        width: 8rem;
+        height: 4rem;
+        line-height: 4rem;
+        font-weight: bold;
+        text-decoration: none;
+        background: white;
+        text-align: center;
+        color: black;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        transition: all 0.35s;
+      }
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        border: 3px solid transparent;
+        position: absolute;
+        transform: rotate(45deg);
+        right: 0;
+        top: 0;
+        z-index: -1;
+        transition: all 0.35s;
+      }
+
+      .icon svg {
+        width: 30px;
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+        transform: rotate(-45deg);
+        fill: #2ecc71;
+        transition: all 0.35s;
+      }
+
+      #loginbutton:hover {
+        width: 10rem;
+        border: 3px solid #2ecc71;
+        background: white;
+        color: #2ecc71;
+      }
+
+      #loginbutton:hover + .icon {
+        border: 3px solid #2ecc71;
+        right: -25%;
+      }
+      /*login button end*/
+    </style>
+  </head>
+  <body>
+    <!-- Nav Starts -->
+    <div class="nav">
+      <h2>IPL AUCTION 2021</h2>
+    </div>
+    <br />
+    <!-- Nav Ends -->
+
+    <div class="grid">
+      <div class="card-container">
+        <div class="insideGrid">
+          <h1>Login For Event</h1>
+          <div>
+            <a href="" style="text-decoration: none">
+              <!-- <button style="font-weight: bold; width: 144px" class="one">
+                Login
+              </button> -->
+              <div
+                style="
+                  height: 4rem;
+                  width: 8rem;
+                  border-radius: 6px;
+                  margin-left: 6rem;
+                  margin-top: 2.5rem;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <div class="wrapper">
+                  <div class="link_wrapper">
+                    <a id="loginbutton" href=''
+                      ><h4>Login</h4></a
+                    >
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 268.832 268.832"
+                      >
+                        <path
+                          d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Login button ends-->
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="insideGrid">
+          <h1>Calculate Score</h1>
+          <a href="" style="text-decoration: none">
+            <!-- Calculator Button Starts -->
+            <div style="transform: translate(5.5rem, 1.5rem)">
+              <div class="container-box">
+                <div class="left-side">
+                  <div class="card">
+                    <div class="card-line"></div>
+                    <div class="buttons"></div>
+                  </div>
+                  <div class="post">
+                    <div class="post-line"></div>
+                    <div class="screen">
+                      <div class="dollar">$</div>
+                    </div>
+                    <div class="numbers"></div>
+                  </div>
+                </div>
+                <div class="right-side">
+                  <div class="new" style="color: black">
+                    <h4>Calculate</h4>
+                  </div>
+
+                  <svg
+                    class="arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="512"
+                    height="512"
+                    viewBox="0 0 451.846 451.847"
+                  >
+                    <path
+                      d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"
+                      data-original="#000000"
+                      class="active-path"
+                      data-old_color="#000000"
+                      fill="#cfcfcf"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <!-- Calculator Button Ends -->
+          </a>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <!-- Link the JS -->
+
+    <a
+      href="/whydidyoutouch"
+      style="text-decoration: none; color: black; float: right; bottom: 0%"
+      ><small style="opacity: 0.5; font-size: 10px">Don't press this </small></a
+    >
+    <script>
+      function showthis(btn) {
+        console.log(btn.children[1].children[1].children[0]);
+        btn.children[1].children[1].children[0].style.display = "block";
+      }
+      function removethis(btn) {
+        btn.children[1].children[1].children[0].style.display = "none";
+      }
+    </script>
+  </body>
+</html>
