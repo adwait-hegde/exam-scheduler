@@ -1,26 +1,17 @@
 from django.shortcuts import render,redirect
-import json
-from django .http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .models import *
-from collections import defaultdict as dd 
 
-def makematrix(subs, tot_sub):
-    # print()
-    # print()
-    # print(subs)
-    # print()
+def makematrix(subs, tot_sub, subid):
+    # Making the adj. matrix
     mat=[[0 for i in range(tot_sub)]for i in range(tot_sub)]
     for sub in subs:
-        # print(sub)
-
         l=len(sub)        
         for i in range(l):
             for j in range(i+1,l):
-                # print(sub[i]['id'])
-                a,b = sub[i]['id']-1 , sub[j]['id']-1
+                a,b = subid[sub[i]['id']] , subid[sub[j]['id']]
                 mat[a][b], mat[b][a] = 1,1
 
     for m in mat:
@@ -28,22 +19,18 @@ def makematrix(subs, tot_sub):
     return mat
 
 
-
-
 def timetable(mat):
+    # MAIN BACKTRACKING ALGORITHM
     l = len(mat)
-    ans = [0 for i in range(l)]
+    ans = [0]*l
     k=0
     color = 1
     while k>=0 :
         for i in range(l):
-            print(k,i,mat[k][i])
             if mat[k][i]==1:
                 if ans[i]==color:
-                    print("---------------------------")
                     color+=1
                     continue
-
         ans[k]=color
         print(ans)
         color=1
@@ -51,14 +38,13 @@ def timetable(mat):
         if k==l:
             break;
 
-    print(ans)
     return ans
 
 
-# Create your views here.
 def start(request):
     if not request.user.is_authenticated:
         return redirect('/login/')
+    
     not_admin=False
     all_subjects = Subject.objects.values()
     reg_subjects = []
@@ -67,7 +53,6 @@ def start(request):
         not_admin=True
         mapping = Mapping.objects.get(user=request.user)
         reg_subjects = mapping.sub.values()
-        print(mapping, reg_subjects)
         uid = mapping
     regno = len(reg_subjects)
 
@@ -75,8 +60,7 @@ def start(request):
     for sub in all_subjects:
         if sub not in reg_subjects:
             aval_subjects.append(sub)
-    # print(reg_subjects[1]['name'])
-    print(all_subjects[6]['name'])
+            
     prms = {'regno':regno,'uid':uid, 'all_sub':aval_subjects,'reg_sub':reg_subjects,'is_admin':not not_admin}
     return render(request, 'start.html', prms)
 
@@ -84,39 +68,39 @@ def start(request):
 def generate(request):
     if not request.user.is_authenticated :
         return redirect('/login/')
+
     if request.user.username != 'admin':
         return redirect('/')
+
     mappings = Mapping.objects.all()
     subjects = Subject.objects.values()
-    print(subjects)
 
-    limit = subjects.count()
-    if request.method=="POST":
-        limit=request.POST.get('limit')
+    counter = 0
+    subid = dict()  #to prevent error after deletion of subjects
+    for subj in subjects:
+        subid[subj['id']]=counter
+        counter+=1
     
     tot_sub = subjects.count()
     subs=[]
     for mapping in mappings:
-        print(mapping.uid, mapping.user, mapping.sub.all())
         subs.append(list(mapping.sub.values()))
-        # print(mapping.uid,mapping.user,mapping.sub)
-    print(subs)
-    mat = makematrix(subs, tot_sub)
 
+    mat = makematrix(subs, tot_sub, subid)
     ans = timetable(mat)
-    # print()
-    # print(len(set(ans)))
-    # print()
-
     res=[[] for i in range(len(set(ans)))]
-    # print(res)
 
+    mcount=0
+    for i in range(1,max(ans)+1):
+        mcount = max(mcount,ans.count(i))
+    
     for subject in subjects:
-        i=subject['id']-1
-        # print(i,subject)
+        i=subid[subject['id']]
         res[ans[i]-1].append(subject['name'])
-        # print(res)
-    print(res)
+
+    for i in range(len(res)):
+        for j in range(mcount-len(res[i])):
+            res[i].append('-')
 
     return render(request, 'table.html',{'res':res})
 

@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap"
       rel="stylesheet"
     />
-    <title>Main Page</title>
+    <title>Dashboard</title>
     <style>
       body {
         background-size: cover;
@@ -241,6 +241,8 @@
         <a class="navbar-brand">COURSE REGISTRATION</a>
         <div class="d-flex">
           {% if is_admin %}
+          <a class="btn btn-outline-info" href="/admin/">Admin</a>
+          &nbsp;
           <a class="btn btn-outline-success" href="{% url 'generate' %}">Generate</a>
           {% endif %}
            &nbsp;
