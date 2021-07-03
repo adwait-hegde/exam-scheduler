@@ -28,7 +28,8 @@ SECRET_KEY = 'f@q01&ew0&49y#qa&2ggzgurz8@cdm3gpmk$4*_@5#97i&e8e&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://exam--scheduler.herokuapp.com',
+ALLOWED_HOSTS = [
+    'exam--scheduler.herokuapp.com',
     'localhost',
     '127.0.0.1'
 ]
