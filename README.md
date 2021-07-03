@@ -14,23 +14,23 @@ The chromatic number is the minimum number of colours needed to colour a graph s
 
 ## Example
 
-![Example](http://github.com/adwait-hegde/exam-scheduler/blob/main/images/courseselect.png)
+![Example](images/courseselect.png)
 
 ## Screenshots
 These are the screenshots of some important pages
 
 ### Login Page:
 
-![Login Page](http://github.com/adwait-hegde/exam-scheduler/blob/main/images/login.png)
+![Login Page](images/login.png)
 
 ### Course Selection Page:
 
-![Course Select](http://github.com/adwait-hegde/exam-scheduler/blob/main/images/courseselect.png)
+![Course Select](images/courseselect.png)
 
 
 ### Timetable Generator Page:
 
-![Timetable](http://github.com/adwait-hegde/exam-scheduler/blob/main/images/timetable.png)
+![Timetable](images/timetable.png)
 
 ## Goals
 
